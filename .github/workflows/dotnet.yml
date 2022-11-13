@@ -22,10 +22,10 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: dotnet restore .\CiCdTestLibrary\
+      run: dotnet restore ./CiCdTestLibrary
 
     - name: Build
-      run: dotnet build .\CiCdTestLibrary\ --no-restore --configuration Release
+      run: dotnet build ./CiCdTestLibrary --no-restore --configuration Release
 
     - name: Test
-      run: dotnet test .\CiCdTestLibrary\ --no-build --verbosity normal
+      run: dotnet test ./CiCdTestLibrary --no-build --verbosity normal
