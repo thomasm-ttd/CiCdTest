@@ -26,10 +26,10 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ${{Project}}${{Project}}
+      run: dotnet restore $Project
 
     - name: Build
-      run: dotnet build ${{Project}} --no-restore --configuration ${{Config}}
+      run: dotnet build $Project --no-restore --configuration $Config
 
     - name: Test
-      run: dotnet test ${{Project}} --no-build --verbosity normal --configuration ${{Config}}
+      run: dotnet test $Project --no-build --verbosity normal --configuration $Config
