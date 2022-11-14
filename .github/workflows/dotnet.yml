@@ -33,3 +33,22 @@ jobs:
 
     - name: Test
       run: dotnet test $Project --no-build --verbosity normal --configuration $Config
+
+  staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    
+    steps:
+    - name: "Deploy to staging for testing"
+      run: dotnet test $Project --no-build --verbosity normal --configuration $Config
+
+  release:
+    needs: staging
+    runs-on: ubuntu-latest
+    environment: release
+
+    steps:
+    - name: "Release code"
+      run: dotnet test $Project --no-build --verbosity normal --configuration $Config
+
