@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  Config: "Release"
+  Project: "./CiCdTestLibrary"
+
 jobs:
   build:
 
@@ -22,10 +26,10 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ./CiCdTestLibrary
+      run: dotnet restore ${{Project}}${{Project}}
 
     - name: Build
-      run: dotnet build ./CiCdTestLibrary --no-restore --configuration Release
+      run: dotnet build ${{Project}} --no-restore --configuration ${{Config}}
 
     - name: Test
-      run: dotnet test ./CiCdTestLibrary --no-build --verbosity normal --configuration Release
+      run: dotnet test ${{Project}} --no-build --verbosity normal --configuration ${{Config}}
