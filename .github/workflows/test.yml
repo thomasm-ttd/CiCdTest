@@ -1,0 +1,23 @@
+name: conditon-check
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+    inputs:
+      run_apply:
+        default: false
+        description: Run TF apply?
+        required: true
+        type: boolean
+
+jobs:
+    Test:
+        runs-on: ubuntu-latest
+        steps:
+        - name: step1
+          if: ${{ (inputs.run_apply != 'false')  && (github.ref != 'refs/heads/main') }}
+          run: echo "step 1"
+        
+        - name: step2
+          run: echo "step 2"
