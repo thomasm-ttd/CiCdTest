@@ -7,3 +7,4 @@ public class SampleClass
         return $"Hello: {value}";
     }
 }
+
