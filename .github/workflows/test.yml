@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: step1
-          if: ${{ (github.ref == 'refs/heads/main') || (inputs.run_apply == 'true') }}
+          if: ${{ (github.ref == 'refs/heads/main') || (inputs.run_apply == 'True') }}
           run: echo "step 1"
         
         - name: step2
