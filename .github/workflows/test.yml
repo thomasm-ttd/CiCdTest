@@ -15,8 +15,11 @@ jobs:
     Test:
         runs-on: ubuntu-latest
         steps:
+        - name: context
+          run: printenv
+
         - name: step1
-          if: ${{ (github.ref == 'refs/heads/main') || (inputs.run_apply == 'true') }}
+          if: ${{ (github.ref == 'refs/heads/main') || (inputs.run_apply) }}
           run: echo "step 1"
         
         - name: step2
